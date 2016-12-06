@@ -1,0 +1,29 @@
+{
+  "name": "collecture-landing",
+  "version": "1.0.0",
+  "description": "Prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lab27/collecture-landing.git"
+  },
+  "keywords": [
+    "collecture-landing"
+  ],
+  "author": "Nick Niles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lab27/collecture-landing/issues"
+  },
+  "homepage": "https://github.com/lab27/collecture-landing#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7"
+  }
+}
