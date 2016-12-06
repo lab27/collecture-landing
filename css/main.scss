@@ -1,11 +1,270 @@
 ---
 ---
 
+@import '../css/settings';
 @import 'foundation';
 @include foundation-everything;
 @import 'animate';
 
-.callout {
-  margin: 6px;
+/**
+This is a sample css file scrolling DOM elements using roll.js.
+The DOM structure usually looks like this
+
+<div id="roll">
+	<div id="steps">
+		<div id="s0" class="step">One</div>
+		<div id="s1" class="step">Two</div>
+		<div id="s2" class="step">Three</div>
+		<div id="s3" class="step">etc...</div>
+	</div>
+	<div id="wrapper">
+		<div id="pane"></div>
+	</div>
+</div>
+*/
+
+
+html, body {
+  /* optional */
+  overflow: hidden;
 }
 
+.top-bar {
+	position:absolute;
+	top:0;
+	left: 0;
+	// right: 100%;
+	background: white;
+	height:60px;
+	z-index: 9999;
+	width:100%;
+
+	.top-bar-right {
+		padding-top: 4px;
+	}
+
+	.menu-text {
+		color: $blue;
+  	font-size: 1.5rem;
+  	letter-spacing: .05rem;
+	}
+
+	a, button {
+		text-transform: uppercase;
+		font-size: .8rem;
+		font-weight: 700;
+		letter-spacing: .05rem;
+	}
+
+	.pill {
+		border-radius: 24px;
+		margin-left: 24px;
+	}
+
+	a.success {color: $green;}
+}
+
+#roll {
+
+  position: relative;
+  width: 500px;
+  height: 500px;
+
+  /*
+    Roll's size can also be defined by absolute positions.
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+  */
+}
+
+
+/* this is the viewport container */
+#wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+}
+
+
+/* this is the full size scrolling pane */
+#pane {}
+
+
+/* this is a container for the steps */
+#steps {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.face {
+	width:10vh;
+	margin-left: -5vh;
+	@include breakpoint(medium) {
+		width: 10vw;
+		margin-left: -5vw;
+		transform: scale(.8);
+		margin-top: -3vw;
+	}
+}
+
+/* the step class */
+.step {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  /* optional transition */
+  transition: top .5s;
+}
+
+
+/* what's the styles for previous steps */
+.step.prev {
+  top: -100%;
+}
+
+
+/* what's the styles for next steps */
+.step.next {
+  top: 100%;
+}
+
+
+/* what's the styles for current steps */
+.step.curr {
+  top: 0;
+}
+
+
+// demostyles
+
+// #menu {
+//   position: absolute;
+//   padding: 30px;
+//   top: 0; left: 0; width: 300px; bottom: 0;
+//   box-sizing: border-box;
+//   background: rgba(255,255,255,.1);
+// }
+
+#progress {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1px; height: 0;
+  background: #ff0;
+}
+
+
+// p {
+//   font-size: 1.2em;
+//   color: #fff;
+
+//   &.field {
+//     line-height: 20px;
+//     span {
+//       display: inline-block;
+//       margin-right: 10px;
+//     }
+//     .label {
+//       opacity: .65;
+//     }
+//     .value {
+//       font-weight: bold;
+//       font-size: 18px;
+//       float: right;
+//     }
+
+//     clear: right;
+//   }
+// }
+
+hr {
+  border: none;
+  border-bottom: 1px dotted rgba(255,255,255,.1);
+  margin: 30px 0;
+}
+// a {
+//   display: inline-block;
+//   color: #ff0;
+//   border-bottom: 1px solid rgba(255,255,0,0);
+//   text-decoration: none;
+
+//   &:hover {
+//     border-bottom-color: rgba(255,255,0,1);
+//   }
+// }
+
+
+#roll {
+  background: $blue;
+
+  position: absolute;
+  top: 0; left: 0px; bottom: 0; right: 0;
+  width: auto; height: auto;
+}
+
+#wrapper {
+
+}
+
+
+#pane {
+
+}
+
+#steps {
+
+}
+
+.step {
+  color: #fff;
+  opacity: 1;
+  transition: top .5s, opacity .5s;
+
+  h1 {
+    top: 84px;
+    // right: 30px;
+    font-size: 12vw;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: white;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    z-index: 900;
+    @include breakpoint(medium){
+    	font-size: 12vh;
+    }
+  }
+
+  p.lead {
+  	position:absolute;
+  	top: 180px;
+  	width: 90vw;
+  	text-align: center;
+  	left: 50vw;
+  	margin-left: -45vw;
+  	z-index: 899;
+  	line-height: 1.5rem;
+  	@include breakpoint(medium){
+  		width: 50vw;
+  		margin-left: -25vw;
+  	}
+  	@include breakpoint(large){
+  		width: 40vw;
+  		margin-left: -20vw;
+  	}
+  }
+}
+
+.step.prev, .step.next {
+  opacity: 0;
+}
