@@ -1,5 +1,50 @@
 (function() {
 
+  //initial timeline
+    //TL max:
+var tmax_options = {
+  delay: 0,
+  paused: false,
+  onComplete: function() {
+    console.log('animation is complete');
+  },
+  onCompleteScope: {},
+  tweens: [],
+  stagger: 0,
+  align: 'normal',
+  useFrames: false,
+  onStart: function() {
+    console.log('on start called');
+    //showNextMsg();
+  },
+  onStartScope: {},
+  onUpdate: function() {
+    console.log('on update called');
+  },
+  onUpdateScope: {},
+  onRepeat: function() {
+    console.log('on repeat called');
+  },
+  onRepeatScope: {},
+  onReverseComplete: function() {
+    console.log('on reverse complete');
+  },
+  onReverseCompleteScope: {},
+  autoRemoveChildren: false,
+  smoothChildTiming: false,
+  repeat: 0,
+  repeatDelay: 0,
+  yoyo: false,
+  onCompleteParams: [],
+  onReverseCompleteParams: [],
+  onStartParams: [],
+  onUpdateParams: [],
+  onRepeatParams: []
+};
+  var tl = new TimelineMax(tmax_options);
+  tl.to($("#ball"),5,{left:"100vw",marginLeft: "-100px", ease: Power0.linear});
+  TweenLite.set(tl,{timeScale: 0})
+
   // initiate roll
   var roll = Roll.DOM( "#wrapper", "#pane", "#steps", ".step", 100 );
 
@@ -25,6 +70,7 @@
     roll.on( "roll", function ( step, stepProgress, position, totalProgress ) {
       var curr = (step >= 0) ? "Step "+(step+1) : "(padding)";
 
+
       var vals = {
         numSteps: roll.steps.length,
         viewportHeight: roll.getViewportHeight(),
@@ -35,6 +81,8 @@
         totalProgress: Math.floor( totalProgress * 100) + "%"
       };
 
+      $(".menu-text").text(stepProgress + ", " + totalProgress)
+      tl.progress(totalProgress)
       for (var k in vals) {
         var el = document.querySelector("#"+k);
         if (el) {
@@ -42,18 +90,18 @@
         }
       }
 
-      if (step >= 0) {
-        var currStep = document.querySelector( "#s" + step );
+      // if (step >= 0) {
+        var currStep = document.querySelector( "#s1" );
         var ings = currStep.querySelectorAll( ".face" );
-        for (var i = 0; i < ings.length; i++) {
-          var ang1 = parseInt( ings[i].getAttribute( "data-angle" ) );
-          var ang2 = parseInt( ings[i].getAttribute( "data-rotate" ) );
-          //var tm = "rotate(" + (ang1 + (stepProgress*0.2) * ang2 ) + "deg) scale(" + (0.25 + totalProgress * 0.5) + ")";
-          var tm = "scale(" + (0.25 + totalProgress * 0.5) + ") translate(0, "+Math.floor(-ang1*stepProgress*3)+"px)";
-          ings[i].style.transform = tm;
-          _vendor( ings[i], "Transform", tm );
-        }
-      }
+        // for (var i = 0; i < ings.length; i++) {
+        //   var ang1 = parseInt( ings[i].getAttribute( "data-angle" ) );
+        //   var ang2 = parseInt( ings[i].getAttribute( "data-rotate" ) );
+        //   //var tm = "rotate(" + (ang1 + (stepProgress*0.2) * ang2 ) + "deg) scale(" + (0.25 + totalProgress * 0.5) + ")";
+        //   var tm = "scale(" + (0.25 + totalProgress * 0.5) + ") translate(0, "+Math.floor(-ang1*stepProgress*3)+"px)";
+        //   ings[i].style.transform = tm;
+        //   _vendor( ings[i], "Transform", tm );
+        // }
+      // }
 
       var progress = document.querySelector("#progress");
       progress.style.height = Math.floor(roll.getViewportHeight() * totalProgress) + "px";

@@ -34,7 +34,7 @@ html, body {
 	top:0;
 	left: 0;
 	// right: 100%;
-	background: white;
+	background: none;
 	height:60px;
 	z-index: 9999;
 	width:100%;
@@ -44,7 +44,7 @@ html, body {
 	}
 
 	.menu-text {
-		color: $blue;
+		color: white;
   	font-size: 1.5rem;
   	letter-spacing: .05rem;
 	}
@@ -61,7 +61,7 @@ html, body {
 		margin-left: 24px;
 	}
 
-	a.success {color: $green;}
+	a.success {color: white;}
 }
 
 #roll {
@@ -101,7 +101,22 @@ html, body {
   width: 100%;
   height: 100%;
 }
+#ball {
+	position:absolute;
+	width:100px;
+	height:100px;
+}
 
+#faces {
+	position: fixed;
+	width:100vw;
+	height:100vh;
+	top: 0;
+	left:0;
+	bottom:0;
+	right: 0;
+	pointer-events: none;
+}
 .face {
 	width:10vh;
 	margin-left: -5vh;
@@ -109,7 +124,7 @@ html, body {
 		width: 10vw;
 		margin-left: -5vw;
 		transform: scale(.8);
-		margin-top: -3vw;
+		margin-top: -6vw;
 	}
 }
 

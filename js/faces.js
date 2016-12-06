@@ -25,7 +25,7 @@
 
   function getIngredients() {
     var ings = [];
-    for (var i=0; i<20; i++) {
+    for (var i=0; i<18; i++) {
       //var dice = Math.floor(Math.random()*stuff.length);
       var dice = i;
       ings.push( stuff[dice] );
@@ -69,10 +69,10 @@
 
 
 
-  for (var i=0; i<1; i++) {
-    var elem = document.querySelector("#s"+i);
+  // for (var i=0; i<1; i++) {
+    var elem = document.querySelector("#faces");
     var ings = getIngredients();
     addIngredients( ings, elem );
-  }
+  
 
 })();
