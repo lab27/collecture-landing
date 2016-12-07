@@ -3,41 +3,65 @@ layout: default
 title: Home Page
 ---
 <div id="roll">
-
 	<div id="steps">
 		<div id="s0" class="step">
-		<h1>It's so easy!</h1>
-		<p class="lead">Collecture is the easiest way to capture and share lectures with your phone.</p>
-
+			<h1>It's so easy!</h1>
+			<p class="lead">Collecture is the easiest way to capture and share lectures with your phone.</p>
 		</div>
-		<div id="s1" class="step"><h1>It's easier than you think!</h1></div>
-		<div id="s2" class="step"><h1>It's easier than that even!</h1></div>
-		<div id="s3" class="step"><h1>Hard to believe!</h1></div>
-		<div id="s4" class="step"><h1>Totally get it!</h1></div>
+		<div id="s1" class="step">
+		<h1>It's easier than you think!</h1>
+<p class="lead">All you have to do is press one button. Not even two. Just one.</p>
+		</div>
+		<div id="s2" class="step">
+		<h1>It's easier than that even!</h1>
+<p class="lead">No assembly required. Just download it.</p>
+		</div>
+		<div id="s3" class="step">
+		<h1>Hard to believe!</h1>
+<p class="lead">We'll even come over to your house and show you how to use it.</p>
+		</div>
+		<div id="s4" class="step">
+		<h1>You should totally get it!</h1>
+<p class="lead">We even use it ourselves. That's called eating your own dogfood.</p>
+		</div>
 	</div>
 	<div id="wrapper">
 		<div id="pane"></div>
 	</div>
 </div>
-		<div id="faces"></div>
-		<div id="handphone">{% include handphone.svg %} </div>
-		<div id="ball" style="top:0;left:0;z-index:9999"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="50"/>
-</svg></div>
+<div id="faces"></div>
+<div id="handphone">{% include handphone.svg %} </div>
+<div id="ball" style="top:0;left:0;z-index:9999">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="50" cy="50" r="50" fill="#353F50"></circle>
+	<text id="totalProgess" x="50" y="50" font-family="Verdana" font-size="12" fill="white" text-anchor="middle">
+    Hello, out there
+  </text>
+</svg>
+</div>
+
+<div id="little-ball" style="top:100px;left:0;z-index:9998">
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="40" cy="40" r="40" fill="#c3cbd5"/>
+	<text id="totalProgess" x="40" y="40" font-family="Verdana" font-size="12" fill="white" text-anchor="middle">
+    I'm blue
+  </text>
+</svg>
+</div>
 <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="menu" data-dropdown-menu>
-      <li class="menu-text">collecture</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Get The App</a></li>
-      <li><a href="#">Help</a></li>
-      <li><a class="success" href="#">Login</a></li>
-      <li><button type="button" class="button pill success">Sign Up</button></li>
-    </ul>
-  </div>
+	<div class="top-bar-left">
+		<ul class="menu" data-dropdown-menu>
+			<li class="menu-text">collecture</li>
+		</ul>
+	</div>
+	<div class="top-bar-right">
+		<ul class="menu">
+			<li><a href="#">Features</a></li>
+			<li><a href="#">Get The App</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a class="success" href="#">Login</a></li>
+			<li><button type="button" class="button pill success">Sign Up</button></li>
+		</ul>
+	</div>
 </div>
 <div id="progress"></div>

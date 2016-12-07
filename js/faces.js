@@ -1,5 +1,7 @@
 (function() {
 
+ 
+
   var stuff =[
     {bg: "1", x: 20,  y: 30},
     {bg: "2", x: 30, y: 25},
