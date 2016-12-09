@@ -70,7 +70,7 @@ currentTimeline.to($("#little-ball"),5,{left:"100vw", ease: Power0.easeNone})
   TweenLite.set(blurTimeline,{timeScale: 0})
 
   // initiate roll
-  var roll = Roll.DOM( "#wrapper", "#pane", "#steps", ".step", 100 );
+  var roll = Roll.DOM( "#wrapper", "#pane", "#steps", ".step", 500 );
 
   var views = document.querySelectorAll( ".step" );
   views[0].className = "step curr"; // set first step's class name as "curr"
@@ -92,18 +92,18 @@ currentTimeline.to($("#little-ball"),5,{left:"100vw", ease: Power0.easeNone})
 
     // when scrolling, just print some debugging info in an element
     roll.on( "roll", function ( step, stepProgress, position, totalProgress ) {
-      var curr = (step >= 0) ? "Step "+(step+1) : "(padding)";
+      //var curr = (step >= 0) ? "Step "+(step+1) : "(padding)";
 
 
-      var vals = {
-        numSteps: roll.steps.length,
-        viewportHeight: roll.getViewportHeight(),
-        paneHeight: roll.getHeight(),
-        currStep: curr,
-        currPos: position + "px",
-        currStepProgress: Math.floor( stepProgress * 100 ) + "%",
-        totalProgress: Math.floor( totalProgress * 100) + "%"
-      };
+      // var vals = {
+      //   numSteps: roll.steps.length,
+      //   viewportHeight: roll.getViewportHeight(),
+      //   paneHeight: roll.getHeight(),
+      //   currStep: curr,
+      //   currPos: position + "px",
+      //   currStepProgress: Math.floor( stepProgress * 100 ) + "%",
+      //   totalProgress: Math.floor( totalProgress * 100) + "%"
+      // };
 
       //$(".menu-text").text(stepProgress + ", " + totalProgress)
       $("#ball svg text").text("total: " + (totalProgress).toFixed(3))
@@ -111,12 +111,13 @@ currentTimeline.to($("#little-ball"),5,{left:"100vw", ease: Power0.easeNone})
       totalTimeline.progress(totalProgress)
       currentTimeline.progress(stepProgress)
       blurTimeline.progress(stepProgress)
-      for (var k in vals) {
-        var el = document.querySelector("#"+k);
-        if (el) {
-          el.textContent = vals[k];
-        }
-      }
+      
+      // for (var k in vals) {
+      //   var el = document.querySelector("#"+k);
+      //   if (el) {
+      //     el.textContent = vals[k];
+      //   }
+      // }
 
       // if (step >= 0) {
         var currStep = document.querySelector( "#s1" );
